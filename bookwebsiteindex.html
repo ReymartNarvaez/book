@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/bookwebsitestyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flex-container">
+        <div class="section1" style="background-color: rgba(255, 255, 255, 0.07);">
+            <p id="loginStatus">Logged-in as:</p>
+            <div class="websitebox-title" style="background-color: rgba(255, 255, 255, 0.07);">
+                <h1>Book Web Site</h1>
+                <p>Welcome to the Book Web Site</p>
+            </div>
+            <div class="book-box" id="book-box" style="background-color: rgba(255, 255, 255, 0.07);">
+                <ul id="users"></ul>
+            </div>
+        </div>
+        
+        <div class="section2" style="background-color: rgba(255, 255, 255, 0.07);">
+            Section 2
+            <div class="sign-in" style="background-color: rgba(255, 255, 255, 0.07);">
+                <form action="">
+                    <h2>Sign in</h2>
+                    <label for="username"></label>
+                    <input type="text" placeholder="Username" id="username">
+                    <br>
+                    <label for="password"></label>
+                    <input type="password" placeholder="Password" id="password">
+                    <br>
+                    
+                </form>
+                <button onclick="login()" class="login">Sign in</button>
+            </div>
+
+            <div>
+                <p>Total price:  </p> <p id="total-book-price"></p> <p>kr</p>
+                
+            </div>
+        </div>
+    </div>
+    <script src="Js/bookwebsite.js"></script>
+</body>
+</html>
