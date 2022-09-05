@@ -1,11 +1,21 @@
-const ul = document.querySelector("#users")
+const ul = document.querySelector("#books")
+const div = document.querySelector("#single-book")
+const users = {username: "kalle", password: "kalle123"};
 
 function login() {
     let getUserName = document.getElementById("username").value;
+    let getUserPassword = document.getElementById("password").value;
     let userStatus = document.getElementById("loginStatus");
 
-    userStatus.textContent = "Logged-in as: " + getUserName;
-    userStatus.style.color = "chartreuse";
+    
+    
+    if (getUserName == users.username && getUserPassword == users.password) {
+        localStorage.setItem("username", getUserName);
+        userStatus.textContent = "Logged-in as: " + localStorage.getItem("username");
+            userStatus.style.color = "red";
+    } else {
+        alert("Wrong username or password")
+    }
 }
 
 const createNode = (elem) => {
@@ -34,7 +44,7 @@ fetch(url)
                 return book.isbn == isbn ? book : null
             });
             data.map((book) => {
-                let li = createNode('li'),
+                let divBox = createNode('div'),
                     cover = createNode('img'),
                     title = createNode('h1'),
                     description = createNode('p')
@@ -45,21 +55,13 @@ fetch(url)
                 title.className = singleTitle;
                 title.href = "singleBook.html?isbn=" + book.isbn;
                 description.innerText = book.description;
-    
                 author.innerText = book.author;
-                price.innerText = book.price + "kr";
-                price.addEventListener("click", function() {
-                    sum = sum + book.price;
-                    total.textContent = sum;
-                })
-                
     
-                appendNode(li, cover);
-                appendNode(li, title);
-                appendNode(li, description);
-                appendNode(li, author);
-                appendNode(li, price);
-                appendNode(ul, li);
+                appendNode(divBox, cover);
+                appendNode(divBox, title);
+                appendNode(divBox, description);
+                appendNode(divBox, author);
+                appendNode(div, divBox);
     
                 
             });
